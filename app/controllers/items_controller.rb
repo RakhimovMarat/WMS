@@ -1,7 +1,9 @@
 class ItemsController < ApplicationController
-	def index
-		@item = Item.search(params[:search])
-	end
+  before_action :find_item, only: %i[show edit update destroy]
+
+  def index
+	@item = Item.search(params[:search])
+  end
 
   def new
     @item = Item.new
@@ -16,17 +18,13 @@ class ItemsController < ApplicationController
     end
   end
 
-  def show
-    @item = Item.find(params[:id])
-  end
+  def show; end
 
   def edit
-    @item = Item.find(params[:id])
     render action: 'edit'
   end
 
   def update
-    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to @item
     else
@@ -35,13 +33,18 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item = Item.find(params[:id]).delete
-    redirect_to item_path
+    if @item.destroy.destroyed?
+      redirect_to item_path
+    end
   end
 
   private
 
   def item_params
     params.require(:item).permit(:number, :description)
+  end
+
+  def find_item
+  	@item = Item.find(params[:id])
   end
 end
