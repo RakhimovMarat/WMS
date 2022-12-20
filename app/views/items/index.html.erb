@@ -1,0 +1,30 @@
+<h1>Search</h1>
+
+<%= form_tag items_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", class: "btn btn-primary", :name => nil %>
+  </p>
+<% end %>
+<br />
+<br />
+<br />
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Number</th>
+      <th>Description</th>
+      <th>Address</th>
+      <th>Quantity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @item.each do |item| %>
+      <tr>
+        <td><%= link_to item.number, edit_item_path(item) %></td>
+        <td><%= item.description %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
