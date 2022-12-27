@@ -2,6 +2,9 @@ class Item < ApplicationRecord
   validates :number, :description, presence: true
   validates :number, uniqueness: true
 
+  belongs_to :address, optional: true
+  has_many :stocks
+
   def self.search(search)
       if search
         where(["number LIKE ?","%#{search}%"])
