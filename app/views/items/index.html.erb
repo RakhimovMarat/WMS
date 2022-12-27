@@ -25,6 +25,7 @@
         <td><%= link_to item.number, edit_item_path(item) %></td>
         <td><%= item.description %></td>
         <td><%= item.address.try(:cell) %></td>
+        <td><%= %></td>
         <td><%= button_to 'Delete', item_path(item), method: :delete %></td>
       </tr>
     <% end %>
