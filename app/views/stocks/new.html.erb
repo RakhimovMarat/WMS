@@ -1,0 +1,24 @@
+<h1>Add stock</h1>
+
+<%= form_for :stock, url: stocks_path, data: { turbo: false } do |f| %>
+
+	<p>
+		Part: <br />
+		<%= f.collection_select :item_id, Item.all, :id, :number, {:prompt => ' Select part '} %>
+	</p>
+
+	<p>
+		<%= f.label :Quantity %> <br />
+		<%= f.text_field :quantity %>
+	</p>
+
+	<p>
+		<%= f.label :Movement %> <br />
+		<%= f.select :flow, ['receipt', 'expense'], {:prompt => ' Select movement '} %>
+	</p>
+
+	<p>
+		<%= f.submit 'Create stock' %>
+	</p>
+
+<% end %>
