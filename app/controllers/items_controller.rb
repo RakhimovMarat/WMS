@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :find_item, only: %i[show edit update destroy]
 
   def index
-	@item = Item.search(params[:search])
+	  @item = Item.search(params[:search])
   end
 
   def new
@@ -41,7 +41,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:number, :description)
+    params.require(:item).permit(:number, :description, :address_id)
   end
 
   def find_item
