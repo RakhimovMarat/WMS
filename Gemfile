@@ -34,7 +34,11 @@ group :development do
 end
 
 group :test do
-  gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+end
+
+group :test, :development do
+  gem 'rspec-rails'
+  gem 'capybara'
 end
