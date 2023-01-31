@@ -6,10 +6,10 @@ class Item < ApplicationRecord
   has_many :stocks
 
   def self.search(search)
-      if search
-        where(["number LIKE ?","%#{search}%"])
-      else
-        Item.all.order(:number)
-      end
+    if search
+      where(["number LIKE ?","%#{search}%"])
+    else
+      Item.all.order(:number)
+    end
   end
 end
