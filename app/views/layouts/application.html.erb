@@ -31,12 +31,11 @@
               </li>
             </ul>    
           </div>
-              <% if user_signed_in? %>
-            <div class="navbar-text me-2"><%= current_user.username %></div><%= button_to 'Sign Out', destroy_user_session_path, :method => :delete, class: "btn btn-secondary" %>
+          <% if user_signed_in? %>
+            <div class="navbar-text me-2"><%= current_user.username %></div><%= button_to 'Sign Out', destroy_user_session_path, :method => :delete, class: "btn btn-outline-secondary" %>
           <% else %>
-            <%= button_to 'Sign in', new_user_session_path, class: "btn btn-secondary" %> 
+            <%= button_to 'Sign in', new_user_session_path, class: "btn btn-outline-secondary" %> 
           <% end %>
-
         </div>
       </nav>
 
