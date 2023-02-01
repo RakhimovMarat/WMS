@@ -8,6 +8,11 @@
 	</p>
 
 	<p>
+		Address: <br />
+		<%= f.collection_select :address_id, Address.all, :id, :cell, {:prompt => ' Select address '} %>
+	</p>
+
+	<p>
 		<%= f.submit 'Edit', class: "btn btn-primary" %>
 	</p>
 

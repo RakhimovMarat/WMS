@@ -17,6 +17,8 @@
       <th>Description</th>
       <th>Address</th>
       <th>Quantity</th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -26,6 +28,7 @@
         <td><%= item.description %></td>
         <td><%= item.address.try(:cell) %></td>
         <td><%= %></td>
+        <td><%= button_to 'Edit', edit_item_path(item), method: :get, class: "btn btn-primary" %></td>
         <td><%= button_to 'Delete', item_path(item), data: { 'turbo-method': :delete, 'turbo-confirm': 'Are you sure?' }, method: :delete, class: "btn btn-danger" %></td>
       </tr>
     <% end %>
