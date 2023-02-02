@@ -1,6 +1,10 @@
 class StocksController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    @stock = Stock.all
+  end
+
   def new; end
 
   def create
