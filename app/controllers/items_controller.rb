@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
 
   def index
 	  @item = Item.search(params[:search])
+    @item = @item.includes(:address)     #adding eager load
   end
 
   def new
