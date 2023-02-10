@@ -4,8 +4,8 @@
   <thead>
     <tr>
       <th>Number</th>
-      <th>Flow</th>
-      <th>Quantity</th>
+      <th>In</th>
+      <th>Out</th>
       <th>Date</th>
     </tr>
   </thead>
@@ -13,8 +13,8 @@
     <% @stock.each do |stock| %>
       <tr>
         <td><%= stock.item.try(:number) %></td>
-        <td><%= stock.flow %></td>
-        <td><%= stock.quantity %></td>
+        <td><%= if stock.flow == 'receipt' then stock.quantity end %></td>
+        <td><%= if stock.flow == 'expense' then stock.quantity end %></td>
         <td><%= stock.created_at %></td>
       </tr>
     <% end %>
