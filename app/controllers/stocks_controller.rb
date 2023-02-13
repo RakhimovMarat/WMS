@@ -1,8 +1,11 @@
+# frozen_string_literal: true
+
 class StocksController < ApplicationController
   before_action :authenticate_user!
 
   def index
     @stock = Stock.all
+    #@stock = Stock.joins(:item).where(item: {id: 0..2})
   end
 
   def new; end
