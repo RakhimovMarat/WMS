@@ -27,7 +27,7 @@
         <td><%= link_to item.number, stocks_path %></td>
         <td><%= item.description %></td>
         <td><%= item.address.try(:cell) %></td>
-        <td><%= %></td>
+        <td><%= @stock %></td>
         <td><%= button_to 'Edit', edit_item_path(item), method: :get, class: "btn btn-primary" %></td>
         <td><%= button_to 'Delete', item_path(item), data: { 'turbo-method': :delete, 'turbo-confirm': 'Are you sure?' }, method: :delete, class: "btn btn-danger" %></td>
       </tr>
