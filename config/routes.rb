@@ -3,11 +3,13 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  root to: 'home#index'
+  root to: 'items#index'
 
   get 'home/index'
 
-  resources :items
+  resources :items do
+    get :transactions, on: :member
+  end
 
   resources :addresses
 
