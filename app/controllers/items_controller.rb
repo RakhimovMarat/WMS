@@ -17,7 +17,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      flash[:success] = 'Part was saved'
+      flash[:success] = 'Item was saved'
       redirect_to @item
     else
       flash.now[:error] = 'Please fill all fields'
@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      flash[:success] = 'Part was updated'
+      flash[:success] = 'Item was updated'
       redirect_to @item
     else
       flash.now[:error] = 'Please fill all fields'
@@ -44,7 +44,7 @@ class ItemsController < ApplicationController
   def destroy
     return unless @item.destroy.destroyed?
 
-    flash[:error] = 'Part was deleted'
+    flash[:error] = 'Item was deleted'
     redirect_to item_path
   end
 
