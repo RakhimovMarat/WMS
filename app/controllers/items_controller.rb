@@ -2,7 +2,7 @@
 
 class ItemsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_item, only: %i[show edit update destroy transaction]
+  before_action :find_item, only: %i[show edit update destroy]
 
   def index
     @item = Item.search(params[:search])
@@ -43,11 +43,11 @@ class ItemsController < ApplicationController
 
   def destroy
     return unless @item.destroy.destroyed?
-
     flash[:error] = 'Item was deleted'
     redirect_to item_path
   end
 
+  # display transactions for each item
   def transactions
     @stock = Stock.where(item_id: params[:id])
   end
