@@ -16,8 +16,10 @@ class AddressesController < ApplicationController
   def create
     @address = Address.new(address_params)
     if @address.save
+      flash[:success] = 'Address was saved'
       redirect_to @address
     else
+      flash.now[:error] = 'Please fill all fields'
       render action: 'new'
     end
   end

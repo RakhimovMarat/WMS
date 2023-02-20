@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
 
   def index
     @item = Item.search(params[:search])
-    @item = @item.includes(:address)     # adding eager load
+    @item = @item.includes(:address)    
     @stock = Stock.group(:item_id).sum('flow * quantity')
   end
 
