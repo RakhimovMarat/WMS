@@ -6,8 +6,7 @@ class ItemsController < ApplicationController
 
   def index
     @item = Item.search(params[:search])
-    @item = @item.includes(:address)    
-    @stock = Stock.group(:item_id).sum('flow * quantity')
+    @item = @item.includes(:address) 
   end
 
   def new
@@ -47,9 +46,10 @@ class ItemsController < ApplicationController
     redirect_to item_path
   end
 
-  # display transactions for each item
+  # display transactions and available stock for each item
   def transactions
     @stock = Stock.where(item_id: params[:id])
+    @balance = Stock.where(item_id: params[:id]).sum('flow * quantity')
   end
 
   private
