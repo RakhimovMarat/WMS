@@ -17,7 +17,6 @@
       <th>Description</th>
       <th>Address</th>
       <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -26,9 +25,14 @@
         <td><%= link_to item.number, transactions_item_path(item) %></td>
         <td><%= item.description %></td>
         <td><%= item.address.try(:cell) %></td>
+        <td>
+          <div class="btn-group me-2" role="group">
+          <%= button_to 'Edit', edit_item_path(item), method: :get %>
+          </div>
+          <div class="btn-group me-2" role="group">
+          <%= button_to 'Delete', item_path(item), data: { 'turbo-method': :delete, 'turbo-confirm': 'Are you sure?' }, method: :delete %>
+          </div>
         </td>
-        <td><%= button_to 'Edit', edit_item_path(item), method: :get %></td>
-        <td><%= button_to 'Delete', item_path(item), data: { 'turbo-method': :delete, 'turbo-confirm': 'Are you sure?' }, method: :delete %></td>
       </tr>
     <% end %>
   </tbody>
