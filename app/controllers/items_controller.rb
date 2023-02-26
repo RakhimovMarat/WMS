@@ -5,8 +5,7 @@ class ItemsController < ApplicationController
   before_action :find_item, only: %i[show edit update destroy]
 
   def index
-    @item = Item.search(params[:search])
-    @item = @item.includes(:address) 
+    @item = Item.search(params[:search]).includes(:address)
   end
 
   def new
@@ -48,8 +47,7 @@ class ItemsController < ApplicationController
 
   # display transactions and available stock for each item
   def transactions
-    @stock = Stock.where(item_id: params[:id])
-    @stock = @stock.includes(:item) 
+    @stock = Stock.where(item_id: params[:id]).includes(:item) 
     @available_amount = @stock.sum('flow * quantity')
   end
 
