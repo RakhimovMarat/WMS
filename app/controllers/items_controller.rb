@@ -49,6 +49,7 @@ class ItemsController < ApplicationController
   # display transactions and available stock for each item
   def transactions
     @stock = Stock.where(item_id: params[:id])
+    @stock = @stock.includes(:item) 
     @available_amount = @stock.sum('flow * quantity')
   end
 
