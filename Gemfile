@@ -49,3 +49,7 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
 end
+
+gem "sidekiq", "~> 7.0"
+
+gem 'redis-client'
