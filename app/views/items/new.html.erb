@@ -12,6 +12,11 @@
 	</p>
 
 	<p>
+		<%= f.label :minimal_stock %> <br />
+		<%= f.text_area :minimal_stock %>
+	</p>
+
+	<p>
 		Address: <br />
 		<%= f.collection_select :address_id, Address.all, :id, :cell, {:prompt => ' Select address '} %>
 	</p>
