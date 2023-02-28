@@ -1,0 +1,26 @@
+<h1>Orders list</h1>
+
+<br />
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Order #</th>
+      <th>Item</th>
+      <th>Quantity</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @order.each do |order| %>
+      <tr>
+        <td><%= order.id%></td>
+        <td><%= order.item.try(:number) %></td>
+        <td><%= order.quantity %></td>
+        <td>
+          <%= button_to 'Delete', order_path(order), data: { 'turbo-method': :delete, 'turbo-confirm': 'Are you sure?' }, method: :delete %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

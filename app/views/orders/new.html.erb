@@ -1,0 +1,19 @@
+<h1>Add order</h1>
+
+<%= form_for :order, url: orders_path, data: { turbo: false } do |f| %>
+
+	<p>
+		Item: <br />
+		<%= f.collection_select :item_id, Item.all, :id, :number, {:prompt => ' Select item '} %>
+	</p>
+
+	<p>
+		<%= f.label :Quantity %> <br />
+		<%= f.text_field :quantity %>
+	</p>
+
+	<p>
+		<%= f.submit 'Create order' %>
+	</p>
+
+<% end %>
