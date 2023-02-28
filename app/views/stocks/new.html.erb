@@ -3,7 +3,7 @@
 <%= form_for :stock, url: stocks_path, data: { turbo: false } do |f| %>
 
 	<p>
-		Part: <br />
+		Item: <br />
 		<%= f.collection_select :item_id, Item.all, :id, :number, {:prompt => ' Select item '} %>
 	</p>
 
