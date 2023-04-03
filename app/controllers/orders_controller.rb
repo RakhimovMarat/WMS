@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     if @order.save
       flash[:success] = 'Order was saved'
-      redirect_to @order
+      redirect_to orders_path
     else
       flash.now[:error] = 'Please fill all fields'
       render action: 'new'
