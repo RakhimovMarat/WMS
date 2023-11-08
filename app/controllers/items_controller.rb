@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class ItemsController < ApplicationController
-  before_action :authenticate_user!
   before_action :find_item, only: %i[show edit update destroy]
 
   def index
@@ -10,6 +9,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    authorize @item
   end
 
   def create
@@ -26,6 +26,7 @@ class ItemsController < ApplicationController
   def show; end
 
   def edit
+    authorize @item
     render action: 'edit'
   end
 
@@ -40,6 +41,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    authorize @item
     return unless @item.destroy.destroyed?
     flash[:error] = 'Item was deleted'
     redirect_to item_path

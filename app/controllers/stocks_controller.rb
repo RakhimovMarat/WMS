@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
 class StocksController < ApplicationController
-  before_action :authenticate_user!
 
-  def new; end
+  def new
+    @stock = Stock.new
+    authorize @stock
+  end
 
   def create
     @stock = Stock.new(stock_params)

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class AddressesController < ApplicationController
-  before_action :authenticate_user!
 
   def index
     @address = Address.all
@@ -11,7 +10,10 @@ class AddressesController < ApplicationController
     @address = Address.find(params[:id])
   end
 
-  def new; end
+  def new
+    @address = Address.new
+    authorize @address
+  end
 
   def create
     @address = Address.new(address_params)

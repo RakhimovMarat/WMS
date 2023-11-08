@@ -20,6 +20,7 @@ gem 'devise'
 gem 'rubocop', '~> 1.44', require: false
 gem 'redis-client'
 gem "sidekiq", "~> 7.0"
+gem 'pundit'
 
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
