@@ -1,7 +1,7 @@
 class AddressPolicy < ApplicationPolicy
 
   def new?
-    user.present? if user
+    user.admin? || user.present? if user
   end
 
   class Scope < Scope

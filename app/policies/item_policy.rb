@@ -1,19 +1,15 @@
 class ItemPolicy < ApplicationPolicy
 
   def new?
-    user.present? if user
+    user.admin? if user
   end
 
   def edit?
-    user.present? if user
+    user.admin? if user
   end
 
   def destroy?
-    user.present? if user
-  end
-
-  def transactions?
-    user.present? if user
+    user.admin? if user
   end
 
   class Scope < Scope
