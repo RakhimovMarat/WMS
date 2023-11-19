@@ -1,5 +1,5 @@
 class ItemSerializer < ActiveModel::Serializer
-  attributes :id, :number, :description, :minimal_stock, :short_description
+  attributes :id, :number, :description, :address_id, :minimal_stock, :short_description
 
   belongs_to :address
 
@@ -7,5 +7,5 @@ class ItemSerializer < ActiveModel::Serializer
 
   def short_description
     object.description.truncate(8)
-  end  
+  end
 end
