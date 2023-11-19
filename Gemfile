@@ -22,6 +22,7 @@ gem 'redis-client'
 gem "sidekiq", "~> 7.0"
 gem 'pundit'
 gem 'doorkeeper'
+gem 'active_model_serializers'
 
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
