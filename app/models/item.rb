@@ -9,11 +9,11 @@ class Item < ApplicationRecord
   has_many :stocks, dependent: :destroy
   has_many :orders, dependent: :destroy
 
-  def self.search(search)
-    if search
-      where(['number LIKE ?', "%#{search}%"])
-    else
-      Item.all.order(:number)
-    end
+  def self.ransackable_attributes(auth_object = nil)
+    ["address_id", "created_at", "description", "id", "minimal_stock", "number", "updated_at"]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["address", "orders", "stocks"]
   end
 end

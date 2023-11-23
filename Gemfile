@@ -23,6 +23,7 @@ gem "sidekiq", "~> 7.0"
 gem 'pundit'
 gem 'doorkeeper'
 gem 'active_model_serializers'
+gem "ransack", "~> 4.1"
 
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
@@ -42,5 +43,3 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
 end
-
-

@@ -1,12 +1,13 @@
 <h1>List of items</h1>
 
-<%= form_tag items_path, :method => 'get' do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
+<%= search_form_for @q do |f| %>
+
+  <%= f.label :number %>
+  <%= f.search_field :number_cont %>
+
+  <%= f.submit %>
 <% end %>
-<br />
+
 <br />
 <br />
 
@@ -21,7 +22,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @item.each do |item| %>
+    <% @items.each do |item| %>
       <tr>
         <td><%= link_to item.number, transactions_item_path(item) %></td>
         <td><%= item.description %></td>
