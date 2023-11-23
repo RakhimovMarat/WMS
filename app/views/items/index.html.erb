@@ -1,8 +1,8 @@
 <h1>List of items</h1>
 
-<%= search_form_for @q do |f| %>
+<%= search_form_for @q, data: { turbo_frame: :results} do |f| %>
 
-  <%= f.label :number %>
+  <%= f.label :number_cont %>
   <%= f.search_field :number_cont %>
 
   <%= f.submit %>
@@ -11,32 +11,34 @@
 <br />
 <br />
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Number</th>
-      <th>Description</th>
-      <th>Address</th>
-      <th>Minimal Stock</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @items.each do |item| %>
+<%= turbo_frame_tag :results do %>
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= link_to item.number, transactions_item_path(item) %></td>
-        <td><%= item.description %></td>
-        <td><%= item.address.try(:cell) %></td>
-        <td><%= item.minimal_stock %></td>
-        <td>
-          <div class="btn-group me-2" role="group">
-          <%= button_to 'Edit', edit_item_path(item), method: :get %>
-          </div>
-          <div class="btn-group me-2" role="group">
-          <%= button_to 'Delete', item_path(item), data: { 'turbo-method': :delete, 'turbo-confirm': 'Are you sure?' }, method: :delete %>
-          </div>
-        </td>
+        <th>Number</th>
+        <th>Description</th>
+        <th>Address</th>
+        <th>Minimal Stock</th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @items.each do |item| %>
+        <tr>
+          <td><%= link_to item.number, transactions_item_path(item) %></td>
+          <td><%= item.description %></td>
+          <td><%= item.address.try(:cell) %></td>
+          <td><%= item.minimal_stock %></td>
+          <td>
+            <div class="btn-group me-2" role="group">
+            <%= button_to 'Edit', edit_item_path(item), method: :get %>
+            </div>
+            <div class="btn-group me-2" role="group">
+            <%= button_to 'Delete', item_path(item), data: { 'turbo-method': :delete, 'turbo-confirm': 'Are you sure?' }, method: :delete %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
