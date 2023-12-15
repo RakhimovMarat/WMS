@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
 
   def index
     @q = Item.ransack(params[:q])
-    @items = @q.result(distinct: true).includes(:address)
+    @pagy, @items = pagy @q.result(distinct: true).includes(:address)
   end
 
   def new

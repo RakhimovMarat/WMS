@@ -24,6 +24,7 @@ gem 'pundit'
 gem 'doorkeeper'
 gem 'active_model_serializers'
 gem "ransack", "~> 4.1"
+gem 'pagy'
 
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
