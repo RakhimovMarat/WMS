@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :profile,     only: [:index]
-      resources :items,       only: [:index]
+      resources :items
       resources :addresses,   only: [:index]
       resources :stocks,      only: [:index]
       resources :orders,      only: [:index]
