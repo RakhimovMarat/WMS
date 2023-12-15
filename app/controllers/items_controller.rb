@@ -4,7 +4,6 @@ class ItemsController < ApplicationController
   before_action :find_item, only: %i[show edit update destroy]
 
   def index
-#    @item = Item.search(params[:search]).includes(:address)
     @q = Item.ransack(params[:q])
     @items = @q.result(distinct: true).includes(:address)
   end

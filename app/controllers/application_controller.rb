@@ -18,7 +18,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
   end
 
-  def notfound
+  def notfound(exception)
+    logger.warn exception
     render file: 'public/404.html', status: :not_found, layuot: false
   end
 end
