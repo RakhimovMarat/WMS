@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
 
   def index
     @q = Item.ransack(params[:q])
-    @pagy, @items = pagy @q.result(distinct: true).includes(:address)
+    @pagy, @items = pagy(@q.result.includes(:address), items: 5)
   end
 
   def new
@@ -44,13 +44,14 @@ class ItemsController < ApplicationController
   def destroy
     authorize @item
     return unless @item.destroy.destroyed?
+
     flash[:error] = 'Item was deleted'
     redirect_to item_path
   end
 
   # display transactions and available stock for each item
   def transactions
-    @stock = Stock.where(item_id: params[:id]).includes(:item)
+    @pagy, @stock = pagy(Stock.where(item_id: params[:id]).includes(:item), items:5)
     @available_amount = @stock.sum('flow * quantity')
   end
 

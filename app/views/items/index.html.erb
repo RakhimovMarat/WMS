@@ -10,10 +10,10 @@
 
 <br />
 <br />
-<%== pagy_bootstrap_nav @pagy %>
-<br />
 
 <%= turbo_frame_tag :results do %>
+<%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1 %>
+<br />
   <table class="table">
     <thead>
       <tr>

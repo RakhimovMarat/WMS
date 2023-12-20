@@ -3,6 +3,8 @@
 <h4>Available amount: <%= @available_amount %></h4>
 <br />
 <table class="table">
+<%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1 %>
+<br />
   <thead>
     <tr>
       <th>Number</th>
@@ -24,4 +26,3 @@
     <% end %>
   </tbody>
 </table>
-
