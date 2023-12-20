@@ -9,11 +9,11 @@ class Item < ApplicationRecord
   has_many :stocks, dependent: :destroy
   has_many :orders, dependent: :destroy
 
-  def self.ransackable_attributes(auth_object = nil)
-    ["address_id", "created_at", "description", "id", "minimal_stock", "number", "updated_at"]
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[address_id created_at description id minimal_stock number updated_at]
   end
 
-  def self.ransackable_associations(auth_object = nil)
-    ["address", "orders", "stocks"]
+  def self.ransackable_associations(_auth_object = nil)
+    %w[address orders stocks]
   end
 end

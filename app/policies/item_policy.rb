@@ -1,5 +1,4 @@
 class ItemPolicy < ApplicationPolicy
-
   def new?
     user.admin? if user
   end

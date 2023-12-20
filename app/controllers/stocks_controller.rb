@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class StocksController < ApplicationController
-
   def new
     @stock = Stock.new
     authorize @stock

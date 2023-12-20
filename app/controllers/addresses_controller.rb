@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class AddressesController < ApplicationController
-
   def index
     @address = Address.all
   end

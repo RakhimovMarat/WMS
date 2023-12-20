@@ -1,6 +1,5 @@
 class Api::V1::BaseController < ApplicationController
-  
-  before_action :doorkeeper_authorize!, unless: :user_signed_in?  
+  before_action :doorkeeper_authorize!, unless: :user_signed_in?
   respond_to :json
 
   protected
@@ -12,5 +11,4 @@ class Api::V1::BaseController < ApplicationController
       warden.authenticate(scope: :user)
     end
   end
-
-end    
+end

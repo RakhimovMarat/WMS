@@ -1,5 +1,4 @@
 class Api::V1::ItemsController < Api::V1::BaseController
-
   skip_before_action :doorkeeper_authorize!, on: :index
 
   def index
@@ -30,5 +29,4 @@ class Api::V1::ItemsController < Api::V1::BaseController
   def find_item
     @item = Item.find(params[:id])
   end
-
 end

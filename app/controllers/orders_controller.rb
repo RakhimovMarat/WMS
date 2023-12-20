@@ -21,6 +21,7 @@ class OrdersController < ApplicationController
   def destroy
     @order = Order.find(params[:id])
     return unless @order.destroy.destroyed?
+
     flash[:error] = 'Order was deleted'
     redirect_to order_path
   end

@@ -5,26 +5,26 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.0'
 
-gem 'rails', '~> 7.0.4'
-gem 'sprockets-rails'
-gem 'pg', '~> 1.1'
-gem 'puma', '~> 5.0'
-gem 'importmap-rails'
-gem 'turbo-rails'
-gem 'stimulus-rails'
-gem 'jbuilder'
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'active_model_serializers'
 gem 'bootsnap', require: false
 gem 'bootstrap', '~> 5.2.2'
 gem 'devise'
-gem 'rubocop', '~> 1.44', require: false
-gem 'redis-client'
-gem "sidekiq", "~> 7.0"
-gem 'pundit'
 gem 'doorkeeper'
-gem 'active_model_serializers'
-gem "ransack", "~> 4.1"
+gem 'importmap-rails'
+gem 'jbuilder'
 gem 'pagy'
+gem 'pg', '~> 1.1'
+gem 'puma', '~> 5.0'
+gem 'pundit'
+gem 'rails', '~> 7.0.4'
+gem 'ransack', '~> 4.1'
+gem 'redis-client'
+gem 'rubocop', '~> 1.44', require: false
+gem 'sidekiq', '~> 7.0'
+gem 'sprockets-rails'
+gem 'stimulus-rails'
+gem 'turbo-rails'
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]

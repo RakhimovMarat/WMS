@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   root to: 'items#index'
 
   authenticate :user do
-    mount Sidekiq::Web => "/sidekiq"
+    mount Sidekiq::Web => '/sidekiq'
   end
 
   get 'home/index'
@@ -26,12 +26,11 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :profile,     only: [:index]
+      resources :profile, only: [:index]
       resources :items
       resources :addresses,   only: [:index]
       resources :stocks,      only: [:index]
       resources :orders,      only: [:index]
     end
   end
-
 end

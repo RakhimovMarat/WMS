@@ -10,7 +10,7 @@ Doorkeeper.configure do
   admin_authenticator do
     current_user.try(:admin) || redirect_to(new_user_session_path)
   end
-  
+
   authorization_code_expires_in 2.hours
   access_token_expires_in 2.hours
 
