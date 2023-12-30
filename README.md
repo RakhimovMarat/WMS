@@ -1,24 +1,30 @@
-# README
+# WMS
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+It is a warehouse management system application. Application is entended for stroring and accounting items in your warehouse. Created on Ruby on Rails framework
 
-Things you may want to cover:
+# 1. License
 
-* Ruby version
+All source code is available under the MIT License.
 
-* System dependencies
+## 2. Used gems
 
-* Configuration
+device
+pundit
+doorkeeper
+active_model_serializers
+sidekiq
+redis-client
+ransack
+pagy
+rspec-rails
+shoulda-matchers
 
-* Database creation
+## 3. Used database
 
-* Database initialization
+Postgres
 
-* How to run the test suite
+## 4. Start the server
 
-* Services (job queues, cache servers, search engines, etc.)
+rails s
 
-* Deployment instructions
 
-* ...
