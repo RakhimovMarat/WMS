@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class AddressesController < ApplicationController
+class AddressesController < ApplicationController # rubocop:disable Style/Documentation
   def index
     @address = Address.all
   end

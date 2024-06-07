@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Api::V1::AddressesController < Api::V1::BaseController
   skip_before_action :doorkeeper_authorize!, on: :index
 

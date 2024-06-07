@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ItemsController < ApplicationController
+class ItemsController < ApplicationController # rubocop:disable Style/Documentation
   before_action :find_item, only: %i[show edit update destroy]
 
   def index
@@ -51,7 +51,7 @@ class ItemsController < ApplicationController
 
   # display transactions and available stock for each item
   def transactions
-    @pagy, @stock = pagy(Stock.where(item_id: params[:id]).includes(:item), items:5)
+    @pagy, @stock = pagy(Stock.where(item_id: params[:id]).includes(:item), items: 5)
     @available_amount = @stock.sum('flow * quantity')
   end
 

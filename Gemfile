@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.0'
+ruby '3.2.2'
 
 gem 'active_model_serializers'
 gem 'bootsnap', require: false
@@ -14,9 +14,9 @@ gem 'importmap-rails'
 gem 'jbuilder'
 gem 'pagy'
 gem 'pg', '~> 1.1'
-gem 'puma', '~> 5.0'
+gem 'puma', '~> 6.0'
 gem 'pundit'
-gem 'rails', '~> 7.0.4'
+gem 'rails', '~> 7.1.2'
 gem 'ransack', '~> 4.1'
 gem 'redis-client'
 gem 'rubocop', '~> 1.44', require: false
