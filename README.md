@@ -8,16 +8,16 @@ All source code is available under the MIT License.
 
 ## 2. Used gems
 
-device
-pundit
-doorkeeper
-active_model_serializers
-sidekiq
-redis-client
-ransack
-pagy
-rspec-rails
-shoulda-matchers
+* device
+* pundit
+* doorkeeper
+* active_model_serializers
+* sidekiq
+* redis-client
+* ransack
+* pagy
+* rspec-rails
+* shoulda-matchers
 
 ## 3. Used database
 
