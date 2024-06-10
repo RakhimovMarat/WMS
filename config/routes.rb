@@ -19,10 +19,9 @@ Rails.application.routes.draw do
   end
 
   resources :addresses
-
   resources :stocks
-
   resources :orders
+  resources :warehouses
 
   namespace :api do
     namespace :v1 do
