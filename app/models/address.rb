@@ -5,4 +5,5 @@ class Address < ApplicationRecord
   validates :cell, presence: true
 
   has_one :item
+  belongs_to :warehouse
 end
